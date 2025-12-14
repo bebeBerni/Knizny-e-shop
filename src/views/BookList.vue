@@ -35,9 +35,23 @@ export default {
 
 
 <style scoped>
-.grid { 
-    display: flex; 
-    gap: 1rem; 
-    flex-wrap: wrap 
+.books-list {
+  width: 100%;
+  padding: 3rem 2rem;
 }
+
+.books-list h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  color: #2c3e50;
+}
+
+.grid {
+  display: flex;             
+  flex-wrap: wrap;            
+  gap: 2rem;
+  justify-content: center;   
+}
+
 </style>
