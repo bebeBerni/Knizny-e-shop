@@ -38,13 +38,66 @@ export default {
 <style scoped>
 .quantity-selector {
     display: flex;
-    gap: 5px;
     align-items: center;
+    gap: 6px;
+
+    background: #f5f7fa;
+    padding: 6px;
+    border-radius: 10px;
 }
 
-input { 
-    width: 50px; 
-    text-align: center 
+.quantity-selector button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: #fff;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
+
+.quantity-selector button:hover {
+    background: #1565c0;
+    transform: scale(1.05);
+}
+
+.quantity-selector button:active {
+    transform: scale(1);
+}
+
+.quantity-selector input {
+    width: 44px;
+    height: 34px;
+
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+
+    background: #ffffff;
+}
+.quantity-selector input::-webkit-outer-spin-button,
+.quantity-selector input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-selector input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 
 </style>
