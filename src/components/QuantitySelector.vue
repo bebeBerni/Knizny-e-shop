@@ -22,9 +22,8 @@ export default {
   },
 
   decrease() {
-    if (this.value > 1) {
-      this.$emit('input', this.value - 1)
-    }
+    if (this.value > 1) this.$emit('input', this.value - 1)
+    else this.$emit('input', 0)
   },
 
   onInput(e) {
@@ -34,13 +33,16 @@ export default {
     const v = Number(raw)
     if (!Number.isFinite(v)) return
 
+    if (v < 1) return
+
     this.$emit('input', v)
   },
 
   onBlur(e) {
-    let v = Number(e.target.value)
+    const raw = e.target.value
+    const v = Number(raw)
 
-    if (!Number.isFinite(v) || v < 1) {
+    if (raw === '' || !Number.isFinite(v) || v < 1) {
       this.$emit('input', 1)
     }
   }
