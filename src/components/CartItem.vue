@@ -26,10 +26,14 @@ export default {
     }
 },
     methods: {
-        updateQuantity(val) {
-            this.$emit('update-quantity', { id: this.item.id, quantity: val })
-        }
-}
+    updateQuantity(payload) {
+      const value = typeof payload === 'number' ? payload : Number(payload?.target?.value)
+
+      if (!Number.isFinite(value)) return
+
+      this.$emit('update-quantity', { id: this.item.id, quantity: value })
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="quantity-selector">
         <button @click="decrease">-</button>
-        <input type="number" :value="value" @input="onInput($event)" min="1" />
+        <input type="number" :value="value" min="1" @input="onInput" @blur="onBlur"/>
         <button @click="increase">+</button>
     </div>
 </template>
@@ -17,20 +17,34 @@ export default {
     }
 },
     methods: {
-        increase() {
-            this.$emit('input', this.value + 1)
-        },
+  increase() {
+    this.$emit('input', this.value + 1)
+  },
 
-        decrease() {
-            if (this.value > 1) this.$emit('input', this.value - 1)
-        },
-
-        onInput(e) {
-            const v = Number(e.target.value) || 1
-            if (v < 1) return
-            this.$emit('input', v)
-        }
+  decrease() {
+    if (this.value > 1) {
+      this.$emit('input', this.value - 1)
     }
+  },
+
+  onInput(e) {
+    const raw = e.target.value
+    if (raw === '') return
+
+    const v = Number(raw)
+    if (!Number.isFinite(v)) return
+
+    this.$emit('input', v)
+  },
+
+  onBlur(e) {
+    let v = Number(e.target.value)
+
+    if (!Number.isFinite(v) || v < 1) {
+      this.$emit('input', 1)
+    }
+  }
+}
 }
 </script>
 
@@ -89,15 +103,5 @@ export default {
 
     background: #ffffff;
 }
-.quantity-selector input::-webkit-outer-spin-button,
-.quantity-selector input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.quantity-selector input[type="number"] {
-    -moz-appearance: textfield;
-}
-
 
 </style>

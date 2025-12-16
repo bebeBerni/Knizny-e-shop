@@ -1,23 +1,27 @@
 <template>
   <div id="app">
     <Navbar />
+
     <main class="container">
       <router-view />
     </main>
+
+    <Footer />
   </div>
 </template>
 
-
 <script>
 import Navbar from './components/Navbar.vue'
-
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
-  components: { Navbar }
+  components: {
+    Navbar,
+    Footer
+  }
 }
 </script>
-
 
 <style>
 * {
@@ -29,7 +33,7 @@ export default {
 html, body {
   width: 100%;
   min-height: 100vh;
-  background-color: #f5f6fa; 
+  background-color: #f5f6fa;
 }
 
 #app {
@@ -44,5 +48,4 @@ main.container {
   padding: 2rem;
   background-color: #f5f6fa;
 }
-
 </style>
