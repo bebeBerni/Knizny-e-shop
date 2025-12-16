@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import BookList from '@/views/BookList.vue'
 import BookDetail from '@/views/BookDetail.vue'
 import CartPage from '@/views/CartPage.vue'
+import NotFound from '@/views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/kosik',
       name: 'cart',
       component: CartPage,
+    },
+    {
+      path: '/:pathMatch(.*)*', 
+      name: 'NotFound',
+      component: NotFound
     }
   ],
 })
