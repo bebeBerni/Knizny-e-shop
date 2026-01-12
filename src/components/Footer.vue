@@ -28,8 +28,10 @@
     </div>
 
     <div class="bottom">
-      <p>© {{ year }} Knižný obchod • Všetky práva vyhradené</p>
-    </div>
+  <div class="bottom-inner">
+    <p>© {{ year }} Knižný obchod • Všetky práva vyhradené</p>
+  </div>
+</div>
   </footer>
 </template>
 
