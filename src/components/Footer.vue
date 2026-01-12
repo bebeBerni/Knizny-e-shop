@@ -56,102 +56,70 @@ export default {
 
 <style scoped>
 .app-footer {
-  width: 100%;
-  background: #ffffff;                 
-  border-top: 1px solid rgba(0,0,0,0.06);
+  background: #1f2937;
+  color: #e5e7eb;
+  margin-top: 10;
 }
 
 .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 34px 20px;
+  padding: 3rem 1rem;
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  gap: 28px;
-  align-items: start;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
 }
 
 .brand h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
-  color: #222;
-}
-
-.brand p {
-  margin: 0;
-  color: #555;
-  line-height: 1.5;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .links h4,
 .contact h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.05rem;
-  color: #222;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
 }
 
 .links ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
 }
 
-a {
-  color: #1976d2;
+.links li {
+  margin-bottom: 0.5rem;
+}
+
+.links a {
+  color: #d1d5db;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease, transform 0.1s ease;
 }
 
-a:hover {
-  color: #1565c0;
-}
-
-.contact p {
-  margin: 6px 0;
-  color: #555;
-}
-
-.social {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
+.links a:hover {
+  color: #fff;
 }
 
 .social a {
-  width: 34px;
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: #f5f7fa;
-  color: #1976d2;
-  font-weight: 800;
+  margin-right: 0.5rem;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .social a:hover {
-  background: #e9f2ff;
+  color: #fff;
 }
 
 .bottom {
-  width: 100%;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid #374151;
 }
 
-.bottom > * {
+.bottom-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 20px 22px;
-}
-
-.bottom p {
-  margin: 0;
+  padding: 1rem;
   text-align: center;
-  width: 100%;
-  color: #222;
+  font-size: 0.85rem;
+  color: #9ca3af;
 }
-
 </style>

@@ -61,178 +61,99 @@ export default {
 </script>
 
 <style scoped>
-.home {
+.hero {
+  background-image:
+    linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)),
+    url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+  background-size: cover;
+  background-position: center;
+  color: white;
+
+  min-height: 70vh;
   display: flex;
-  flex-direction: column;
-  gap: 28px;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
 }
 
-.hero {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 34px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+.hero-inner {
+  text-align: center;
+  max-width: 800px;
 }
 
 .hero h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  color: #111;
-  letter-spacing: -0.02em;
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.hero h1::before {
+  content: "VITAJTE 👋";
+  display: block;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #93c5fd;
+  margin-bottom: 0.8rem;
 }
 
 .hero p {
-  margin: 12px 0 18px;
-  color: #6b7280;
-  line-height: 1.7;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
+  color: #e5e7eb;
+  margin-bottom: 2.2rem;
 }
 
 .actions {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
-.primary, .ghost {
-  border: none;
-  cursor: pointer;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-weight: 900;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .primary {
   background: #2563eb;
-  color: #fff;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
-.primary:hover { background: #1d4ed8; }
+
+.primary:hover {
+  background: #1e40af;
+}
 
 .ghost {
-  background: #f3f4f6;
-  color: #2563eb;
-}
-.ghost:hover { background: #e5e7eb; }
-
-.trust {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  color: #6b7280;
-  font-weight: 800;
-}
-
-.promo {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.promo-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 18px;
-}
-
-.promo-card h3 {
-  margin: 0 0 6px;
-  color: #111;
-  font-weight: 900;
-}
-
-.promo-card p {
-  margin: 0 0 10px;
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-.linkbtn {
-  border: none;
   background: transparent;
-  padding:  0;
+  border: 1px solid white;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 900;
-  color: #2563eb;
 }
-.linkbtn:hover { color: #1d4ed8; }
+
+.trust span {
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
 
 .benefits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
 .benefit {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+  padding: 1.5rem;
   border-radius: 12px;
-  padding: 18px;
   display: flex;
-  gap: 12px;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #eef2ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.benefit h4 {
-  margin: 0 0 6px;
-  color: #111;
-  font-weight: 900;
-}
-
-.benefit p {
-  margin: 0;
-  color: #6b7280;
-  line-height: 1.5;
-}
-
-.quick {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.quick-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 18px;
-  cursor: pointer;
-}
-
-.quick-card:hover {
-  border-color: rgba(37, 99, 235, 0.35);
-}
-
-.quick-card h4 {
-  margin: 0 0 8px;
-  font-weight: 900;
-  color: #111;
-}
-
-.quick-card p {
-  margin: 0 0 10px;
-  color: #6b7280;
-  line-height: 1.5;
-}
-
-.quick-card span {
-  color: #2563eb;
-  font-weight: 900;
-}
-
-@media (max-width: 900px) {
-  .benefits, .quick { grid-template-columns: 1fr; }
+  font-size: 2rem;
 }
 </style>

@@ -27,43 +27,32 @@ export default {
 }
 </script>
 
-<style>
-
-main.container {
-  flex: 1;
-  width: 100%;
-  padding: 2rem 1rem;
-  background-color: #f5f6fa;
-}
-
-main.container > * {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
+<style scoped>
+  :global(*) {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f5f6fa;
+:global(html, body) {
+  margin: 0;
+  padding: 0;
 }
-
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-main.container {
+.container {
   flex: 1;
   width: 100%;
-  padding: 2rem;
-  background-color: #f5f6fa;
+  background: #f6f7fb;
+  padding: 3rem 1rem;
+}
+
+.container > * {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 </style>

@@ -53,118 +53,125 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .topbar {
-  width: 100%;
-  background: #eef2ff;
-  color: #1e40af;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-bottom: 1px solid rgba(30, 64, 175, 0.12);
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 0.85rem;
 }
 
 .topbar-inner {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 0.5rem 1rem;
   text-align: center;
 }
 
-.sep { opacity: 0.55; margin: 0 8px; }
-
 .nav {
-  width: 100%;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .nav-inner {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 16px;
+  padding: 0.9rem 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; 
 }
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  gap: 0.8rem;
   cursor: pointer;
+  align-items: center;
+  min-width: 220px;
 }
 
 .logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: #2563eb;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 .name {
-  font-weight: 900;
-  color: #111;
-  font-size: 1.05rem;
+  font-weight: 800;
 }
 
 .tag {
+  font-size: 0.8rem;
   color: #6b7280;
-  font-size: 0.92rem;
-  margin-top: 2px;
 }
 
 .links {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.6rem;
+  flex-wrap: wrap; 
+  justify-content: flex-end;
 }
 
 .link {
-  border: none;
-  background: transparent;
+  background: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  font-weight: 800;
-  color: #111;
-  padding: 10px 12px;
-  border-radius: 10px;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
 }
 
 .link:hover {
-  background: #f3f4f6;
+  color: #2563eb;
+  border-color: #dbeafe;
+  background: #eff6ff;
 }
 
 .cta {
-  border: 1px solid rgba(0,0,0,0.10);
   background: #2563eb;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 900;
-  padding: 10px 14px;
+  color: white;
+  border: none;
+  padding: 0.55rem 1rem;
   border-radius: 10px;
+  cursor: pointer;
   position: relative;
+  font-weight: 700;
 }
 
-.cta:hover { background: #1d4ed8; }
+.cta:hover {
+  background: #1e40af;
+}
 
 .badge {
-  margin-left: 10px;
   background: #ef4444;
-  color: #fff;
-  padding: 2px 8px;
+  color: white;
   border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 900;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 700px) {
-  .nav-inner { flex-direction: column; align-items: stretch; }
-  .links { justify-content: space-between; }
+  .nav-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand {
+    justify-content: center;
+    min-width: unset;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  .topbar-inner {
+    font-size: 0.78rem;
+  }
 }
 </style>
