@@ -1,83 +1,238 @@
 <template>
-    <div class="home">
-        <h1>Vitaj v E-shope s knihami</h1>
-        <p>Vyber si knihu z ponuky.</p>
+  <div class="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Knižný e-shop, ktorý si zamiluješ</h1>
+        <p>
+          Najlepšie tituly, rýchle doručenie a zľavy každý týždeň.
+          Vyber si knihu podľa žánru a čítaj ešte dnes.
+        </p>
 
-        <img src="@/assets/books.jpg" alt="Banner knihy" class="banner">
+        <div class="actions">
+          <button class="primary" @click="goTo('/knihy')">Prejsť na knihy</button>
+          <button class="ghost" @click="goTo('/kosik')">Pozrieť košík</button>
+        </div>
 
-        <router-link to="/knihy" class="cta-btn">
-            Prejsť na knihy
-        </router-link>
+        <div class="trust">
+          <span>⭐ 4.9/5</span>
+          <span>🚚 Doručenie 24–48h</span>
+          <span>🔒 Bezpečná platba</span>
+        </div>
+      </div>
+    </section>
 
-    </div>
+    <section class="benefits">
+      <div class="benefit">
+        <div class="icon">⚡</div>
+        <div>
+          <h4>Rýchle doručenie</h4>
+          <p>Objednávky odosielame každý pracovný deň.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">💸</div>
+        <div>
+          <h4>Super ceny</h4>
+          <p>Akcie, zľavy a výhodné balíčky kníh.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">🤝</div>
+        <div>
+          <h4>Overený e-shop</h4>
+          <p>Spokojní zákazníci a jednoduché vrátenie.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
-    export default { name: 'Home' }
+export default {
+  name: 'Home',
+  methods: {
+    goTo(path) {
+      this.$router.push(path)
+    }
+  }
+}
 </script>
 
 <style scoped>
 .home {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-.home h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #2c3e50;
+.hero {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 34px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
 }
 
-.home p {
+.hero h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  margin: 12px 0 18px;
+  color: #6b7280;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.primary, .ghost {
+  border: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.primary {
+  background: #2563eb;
+  color: #fff;
+}
+.primary:hover { background: #1d4ed8; }
+
+.ghost {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+.ghost:hover { background: #e5e7eb; }
+
+.trust {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: #6b7280;
+  font-weight: 800;
+}
+
+.promo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.promo-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.promo-card h3 {
+  margin: 0 0 6px;
+  color: #111;
+  font-weight: 900;
+}
+
+.promo-card p {
+  margin: 0 0 10px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.linkbtn {
+  border: none;
+  background: transparent;
+  padding:  0;
+  cursor: pointer;
+  font-weight: 900;
+  color: #2563eb;
+}
+.linkbtn:hover { color: #1d4ed8; }
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.benefit {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 12px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2.5rem;
 }
 
-.cta-btn {
-  display: inline-block;
-  padding: 0.9rem 2.2rem;
-  background-color: #3498db;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 16px rgba(52, 152, 219, 0.35);
+.benefit h4 {
+  margin: 0 0 6px;
+  color: #111;
+  font-weight: 900;
 }
 
-.cta-btn:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(52, 152, 219, 0.45);
+.benefit p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
 }
 
-.banner {
-  width: 100%;
-  max-height: 320px;
-  object-fit: cover;
-  border-radius: 18px;
-  margin: 2.5rem 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease;
+.quick {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.banner:hover {
-  transform: scale(1.03);
+.quick-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .home h1 {
-    font-size: 2rem;
-  }
-
-  .cta-btn {
-    width: 100%;
-    padding: 1rem;
-  }
+.quick-card:hover {
+  border-color: rgba(37, 99, 235, 0.35);
 }
 
+.quick-card h4 {
+  margin: 0 0 8px;
+  font-weight: 900;
+  color: #111;
+}
+
+.quick-card p {
+  margin: 0 0 10px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.quick-card span {
+  color: #2563eb;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .benefits, .quick { grid-template-columns: 1fr; }
+}
 </style>

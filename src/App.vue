@@ -28,6 +28,20 @@ export default {
 </script>
 
 <style>
+
+main.container {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: #f5f6fa;
+}
+
+main.container > * {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
 * {
   margin: 0;
   padding: 0;
