@@ -62,7 +62,12 @@ methods: {
     },
 
     checkout() {
-        alert('Simulované odoslanie objednávky')
+      const cartStore = useCartStore()
+
+      alert('Objednávka bola úspešne odoslaná 🎉')
+
+      cartStore.clearCart()  
+      this.cart = []        
     },
 
     goBack() {
