@@ -1,24 +1,13 @@
-<script>
-  (function () {
-    const repo = '/Knizny-e-shop';
-    const l = window.location;
-    if (l.search.startsWith('?/')) {
-      const path = l.search.slice(2); 
-      const newUrl = repo + '/' + path + l.hash;
-      window.history.replaceState(null, '', newUrl);
-    }
-  })();
-</script>
-
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         width: 100%;
@@ -28,7 +17,21 @@
     </style>
 
     <title>Knižný e-shop</title>
+
+    <script>
+      (function () {
+        const repo = '/Knizny-e-shop'
+        const l = window.location
+
+        if (l.search.startsWith('?/')) {
+          const path = l.search.slice(2) 
+          const newUrl = repo + '/' + path + l.hash
+          window.history.replaceState(null, '', newUrl)
+        }
+      })()
+    </script>
   </head>
+
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
