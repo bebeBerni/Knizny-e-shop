@@ -1,24 +1,13 @@
-<script>
-  (function () {
-    const repo = '/Knizny-e-shop';
-    const l = window.location;
-    if (l.search.startsWith('?/')) {
-      const path = l.search.slice(2); 
-      const newUrl = repo + '/' + path + l.hash;
-      window.history.replaceState(null, '', newUrl);
-    }
-  })();
-</script>
-
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/Knizny-e-shop/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/Knizny-e-shop/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         width: 100%;
@@ -28,9 +17,23 @@
     </style>
 
     <title>Knižný e-shop</title>
+
+    <script>
+      (function () {
+        const repo = '/Knizny-e-shop'
+        const l = window.location
+
+        if (l.search.startsWith('?/')) {
+          const path = l.search.slice(2) 
+          const newUrl = repo + '/' + path + l.hash
+          window.history.replaceState(null, '', newUrl)
+        }
+      })()
+    </script>
     <script type="module" crossorigin src="/Knizny-e-shop/assets/index-Cepb5Fc7.js"></script>
     <link rel="stylesheet" crossorigin href="/Knizny-e-shop/assets/index-B4uvSdwi.css">
   </head>
+
   <body>
     <div id="app"></div>
   </body>
