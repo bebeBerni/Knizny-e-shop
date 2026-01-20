@@ -11,10 +11,7 @@ export interface CartItem {
   quantity: number
 }
 
-export interface UpdateQuantityPayload {
-  id: number
-  quantity: number
-}
+export type BookLike = Omit<CartItem, 'quantity'>
 
 function loadCart(): CartItem[] {
   try {
@@ -35,22 +32,29 @@ export const useCartStore = defineStore('cart', {
   getters: {
     totalPrice: (state): number => {
       let sum = 0
-      for (const item of state.cart) sum += item.price * item.quantity
+      for (const item of state.cart) {
+        sum += item.price * item.quantity
+      }
       return sum
     },
 
     totalItems: (state): number => {
       let count = 0
-      for (const item of state.cart) count += item.quantity
+      for (const item of state.cart) {
+        count += item.quantity
+      }
       return count
     }
   },
 
   actions: {
-    addToCart(book: CartItem) {
+    addToCart(book: BookLike) {
       const item = this.cart.find(i => i.id === book.id)
-      if (item) item.quantity++
-      else this.cart.push({ ...book, quantity: 1 })
+      if (item) {
+        item.quantity += 1
+      } else {
+        this.cart.push({ ...book, quantity: 1 })
+      }
     },
 
     removeFromCart(id: number) {
@@ -58,11 +62,17 @@ export const useCartStore = defineStore('cart', {
     },
 
     updateQuantity(id: number, quantity: number) {
+      const q = Number(quantity)
+      if (!Number.isFinite(q)) return
+
       const item = this.cart.find(i => i.id === id)
       if (!item) return
 
-      if (quantity <= 0) this.removeFromCart(id)
-      else item.quantity = quantity
+      if (q <= 0) {
+        this.removeFromCart(id)
+      } else {
+        item.quantity = q
+      }
     },
 
     clearCart() {

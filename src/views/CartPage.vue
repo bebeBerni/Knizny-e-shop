@@ -27,56 +27,45 @@
 
 <script>
 import CartItem from '@/components/CartItem.vue'
-import { useCartStore } from '@/stores/cart.ts'
-
+import { useCartStore } from '@/stores/cart'
 
 export default {
-    name: 'CartPage',
-    components: { CartItem },
-    data() {
-        return {
-            cart: []
-        }
-},
-computed: {
-    totalItems() {
-        return useCartStore().totalItems
-    },
+  name: 'CartPage',
+  components: { CartItem },
 
-    totalPrice() {
-        return useCartStore().totalPrice
-    }
-},
-    created() {
-        this.cart = useCartStore().cart
+  computed: {
+    cart() {
+      return useCartStore().cart
     },
-methods: {
+    totalItems() {
+      return useCartStore().totalItems
+    },
+    totalPrice() {
+      return useCartStore().totalPrice
+    }
+  },
+
+  methods: {
     removeItem(id) {
-        useCartStore().removeFromCart(id)
-        this.cart = useCartStore().cart
+      useCartStore().removeFromCart(id)
     },
 
     updateQuantity({ id, quantity }) {
-        useCartStore().updateQuantity({ id, quantity })
-        this.cart = useCartStore().cart
+      useCartStore().updateQuantity(id, Number(quantity))
     },
 
     checkout() {
       const cartStore = useCartStore()
-
       alert('Objednávka bola úspešne odoslaná 🎉')
-
-      cartStore.clearCart()  
-      this.cart = []        
+      cartStore.clearCart()
     },
 
     goBack() {
-        this.$router.push('/knihy') 
+      this.$router.push('/knihy')
     }
-}
+  }
 }
 </script>
-
 
 <style scoped>
 .cart-page {
