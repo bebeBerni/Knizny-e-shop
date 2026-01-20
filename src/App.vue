@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-app>
     <Navbar />
 
     <main class="container">
@@ -7,8 +7,9 @@
     </main>
 
     <Footer />
-  </div>
+  </v-app>
 </template>
+
 
 <script>
 import Navbar from './components/Navbar.vue'
