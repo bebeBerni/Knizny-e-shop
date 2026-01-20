@@ -70,3 +70,15 @@ export const useCartStore = defineStore('cart', {
     }
   }
 })
+
+export function watchCartStore(): void {
+  const store = useCartStore()
+
+  watch(
+    () => store.cart,
+    (cart) => {
+      localStorage.setItem('cart', JSON.stringify(cart))
+    },
+    { deep: true }
+  )
+}
