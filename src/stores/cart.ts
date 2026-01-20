@@ -1,42 +1,68 @@
 import { defineStore } from 'pinia'
 import { watch } from 'vue'
 
+export interface CartItem {
+  id: number
+  title: string
+  author: string
+  price: number
+  image: string
+  genre: string
+  quantity: number
+}
+
+export interface UpdateQuantityPayload {
+  id: number
+  quantity: number
+}
+
+function loadCart(): CartItem[] {
+  try {
+    const raw = localStorage.getItem('cart')
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as CartItem[]
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    cart: JSON.parse(localStorage.getItem('cart') || '[]')
+    cart: loadCart() as CartItem[]
   }),
 
   getters: {
-    totalPrice: (state) =>
-      state.cart.reduce((s, i) => s + i.price * i.quantity, 0),
+    totalPrice: (state): number => {
+      let sum = 0
+      for (const item of state.cart) sum += item.price * item.quantity
+      return sum
+    },
 
-    totalItems: (state) =>
-      state.cart.reduce((s, i) => s + i.quantity, 0)
+    totalItems: (state): number => {
+      let count = 0
+      for (const item of state.cart) count += item.quantity
+      return count
+    }
   },
 
   actions: {
-    addToCart(book) {
-      const found = this.cart.find(i => i.id === book.id)
-      if (found) found.quantity += 1
+    addToCart(book: CartItem) {
+      const item = this.cart.find(i => i.id === book.id)
+      if (item) item.quantity++
       else this.cart.push({ ...book, quantity: 1 })
     },
 
-    removeFromCart(id) {
+    removeFromCart(id: number) {
       this.cart = this.cart.filter(i => i.id !== id)
     },
 
-    updateQuantity({ id, quantity }) {
-      const q = Number(quantity)
-      if (!Number.isFinite(q)) return
-
+    updateQuantity(id: number, quantity: number) {
       const item = this.cart.find(i => i.id === id)
       if (!item) return
 
-      if (q <= 0) {
-        this.removeFromCart(id)
-      } else {
-        item.quantity = q
-      }
+      if (quantity <= 0) this.removeFromCart(id)
+      else item.quantity = quantity
     },
 
     clearCart() {
@@ -44,15 +70,3 @@ export const useCartStore = defineStore('cart', {
     }
   }
 })
-
-export function watchCartStore() {
-  const store = useCartStore()
-
-  watch(
-    () => store.cart,
-    (cart) => {
-      localStorage.setItem('cart', JSON.stringify(cart))
-    },
-    { deep: true }
-  )
-}
